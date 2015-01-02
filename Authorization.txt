@@ -1,0 +1,40 @@
+Steps for Developers
+
+1. After authentication/LOGIN, one should call the db to retrieve the mapping between GM_ID and SMFACTION (1 GM_ID may correspond to multiple actions( web pages)
+
+2. The results returned should be transformed in to following POJO structure (The Authorization jar has the pojos)- just an example
+		UserAuthDetails userAuthDetails = new UserAuthDetails();
+		userAuthDetails.setAuthenticated(true); // Indicate user is authenticated
+		UserPolicy userPolicy = new UserPolicy();
+		userPolicy.setGmId("5");//Extract this from database
+		/**
+		 * One should extract this from database
+		 * This is just an example showing how to populate.
+		 */
+		List<UserPolicyAction> policyActions = new ArrayList<UserPolicyAction>();
+		UserPolicyAction userPolicyAction1 = new UserPolicyAction();
+		userPolicyAction1.setSmfId("1912");
+		userPolicyAction1.setSmfAction("BirthRegistration.html");
+		
+		UserPolicyAction userPolicyAction2 = new UserPolicyAction();
+		userPolicyAction2.setSmfId("1912");
+		userPolicyAction2.setSmfAction("BirthRegistration.html");
+		
+		UserPolicyAction userPolicyAction3 = new UserPolicyAction();
+		userPolicyAction3.setSmfId("1912");
+		userPolicyAction3.setSmfAction("BirthRegistration.html");
+		
+		UserPolicyAction userPolicyAction4 = new UserPolicyAction();
+		userPolicyAction4.setSmfId("1912");
+		userPolicyAction4.setSmfAction("BirthRegistration.html");
+		
+		//....and so on
+		userPolicy.setPolicyActions(policyActions);
+		userAuthDetails.setUserPolicy(userPolicy);	
+	
+	3.	Once the UserAuthDetails object is created, one should put the object in the session against 'userAuthDetails' key. So at the end of login, the session has the UserAuthDetails obj for a given user.
+	
+	4. Now, one should update the web.xml with the following servlet filter - com.abmware.security.auth.AuthorizationFilter. Make sure the Authorization jar is on the app classpath. 
+	
+	5. And we are set to go ahead - compile, deploy and run the web app
+		

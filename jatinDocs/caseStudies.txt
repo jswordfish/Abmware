@@ -1,0 +1,24 @@
+Frameworks and Technologies
+1.	Automated Server side Development                    
+2.	Automated UI Development (In Progress)
+3.	Spring Transactions and power of AOP
+4.	JPA vs JDO
+5.	NoSQL – What ,Why and Which One
+6.	Open Source BPM
+7.	Open Source DMS and Apache Chemistry
+8.	Web Services – Why REST
+9.	Legacy Code Migration 
+
+Streamlining Development and Build Processes
+1.	Using Maven
+2.	Modular Library/Component based approach
+3.	Integration with CI – Jenkins
+4.	Writing Functional and Load Test Cases
+5.	Open Source Load Tool
+6.	Testing REST 
+
+Design Case studies
+1.	Build Graph based Systems
+2.	Externalizing Custom Fields for products and making it product/domain independent
+3.	Optimizing CPU capacities - Making Sure your CPU resources are consumed by components who deserves most
+4.	Using light weight web containers for Enterprise Applications – Getting rid of Weblogic and Websphere
